@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="container mt-5 w-75">
+    <div class="my-5"><a href="/">Return to Home Page</a></div>
+    
+    {% if data %}
+    
+      {% if data.message %}
+        <h1>Hi, {{ data.message }}!</h1>
+      {% else %}
+        <h1>You did not enter a name. That's okay - welcome anyway!</h1>
+      {% endif %}
+      
+    {% else %}
+    
+      <h6>Sorry - there is no data to display</h6>
+    
+    {% endif %}
+
+
+  </div> 
+</body>
+</html>
