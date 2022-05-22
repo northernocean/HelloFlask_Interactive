@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="container mt-5 w-75">
+    <div class="my-5"><a href="/">Return to Home Page</a></div>
+    <!-- 
+         Case 1: Data has been submitted (Post Request)
+         
+         If data exists, the page has been submitted (posted) to the server
+         by the user having submitted the form. In real-world applications,
+         a variety of validations of the form data usually exists, but here
+         we will optimistically just take data from the form as it is.
+         
+         However, even in a simple project, you will probably need to do some
+         basic validation of the most import data - for instance, if you are
+         creating a chart based on a user selection, at minimum the selection 
+         must not be null or empty and the selection must be a valid item that 
+         can be charted... in other words, cover the basic things that can "go wrong" -->
+    
+    {% if data %}
+    
+      {% if data.message %}
+        <h1>Hi, {{ data.message }}!</h1>
+      {% else %}
+        <h1>You did not enter a name. That's okay - welcome anyway!</h1>
+      {% endif %}
+      
+    <!-- 
+        Case 2: No data yet (Get Request)
+         If no data exists, the page has been requested for the first time
+         so just display the form and whatever else you want to initially show the 
+         user when they first open the page.
+
+         This is an "old-fashioned" way of doing this - we simply use the same
+         page to either display a blank form ready to be filled in, or a page
+         with the form data being used for whatever purpose - but either way
+         it is the same page. It simply behaves different depending on whether
+         it is a get request (without data) or a post request (with data).
+
+         Another option is for the application to go to a different page when
+         the form is submitted - in this case, you set your action attribute
+         to the page you want to redirect to, and submit the form to that page.
+        -->
+    
+    {% else %}
+    
+      <!-- an html form -->
+      <form method="post" action="/hello">
+        
+        <!-- textbox -->
+        <label for="name">Enter your name:</label>
+        <input type="text" name="name" class="m-2"></input>
+        
+        <!-- Submit (OK, Enter, Post) button -->
+        <button type="submit" class="d-block">Submit</input>
+      
+      </form>
+    
+    {% endif %}
+
+  </div> 
+</body>
+</html>

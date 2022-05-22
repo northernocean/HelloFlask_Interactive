@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Plot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  <style>
+    #data-source {
+      margin-left: 70px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5 w-50">
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item">
+              <div class="m-1">
+                <a href="/hello">Data Entry</a>
+                <span class="badge rounded-pill bg-info ms-3" style="min-width: 120px">Interactive User Form</span>
+              </div>
+              <p>Hello world example of an HTML form for posting user-entered data to the server</p>
+            </li>
+        </ul>
+    </div>
+  </div>
+</body>
+
+</html>
